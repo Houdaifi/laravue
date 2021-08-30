@@ -3,14 +3,14 @@
     <div class="container mx-auto flex items-center justify-between">
       <p class="text-base">Free shipping, 30-day return or refund guarantee.</p>
       <div class="inline-flex space-x-4 uppercase">
-        <p class="cursor-pointer">Sign In</p>
+        <!-- <p class="cursor-pointer">Sign In</p>
         <p class="cursor-pointer">FAQS</p>
         <p class="cursor-pointer inline-flex">
           ENG
           <span>
             <fa class="w-3 ml-2 mt-1" :icon="['fa', 'angle-down']" />
           </span>
-        </p>
+        </p> -->
         <drop-down/>
       </div>
     </div>
