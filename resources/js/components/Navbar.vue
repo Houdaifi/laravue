@@ -85,15 +85,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.profile-photo {
-  width: 2rem;
-  height: 2rem;
-  margin: -.375rem 0;
-}
-
-.container {
-  max-width: 1100px;
-}
-</style>
