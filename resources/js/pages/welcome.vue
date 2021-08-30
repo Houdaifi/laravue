@@ -1,5 +1,8 @@
 <template>
   <div>
+
+    <v-top-bar/>
+
     <div class="top-right links">
       <template v-if="authenticated">
         <router-link :to="{ name: 'home' }">
@@ -28,6 +31,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import VTopBar from '~/components/Elements/TopBar'
 
 export default {
   layout: 'basic',
@@ -39,6 +43,10 @@ export default {
   data: () => ({
     title: window.config.appName
   }),
+
+  components:{
+    VTopBar
+  },
 
   computed: mapGetters({
     authenticated: 'auth/check'
