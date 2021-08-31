@@ -26,6 +26,9 @@ class LoginController extends Controller
      */
     protected function attemptLogin(Request $request): bool
     {
+
+        dd('Hi'); 
+        
         $token = $this->guard()->attempt($this->credentials($request));
 
         if (! $token) {
@@ -45,35 +48,35 @@ class LoginController extends Controller
     /**
      * Send the response after the user was authenticated.
      */
-    protected function sendLoginResponse(Request $request)
-    {
-        $this->clearLoginAttempts($request);
+    // protected function sendLoginResponse(Request $request)
+    // {
+    //     $this->clearLoginAttempts($request);
 
-        $token = (string) $this->guard()->getToken();
-        $expiration = $this->guard()->getPayload()->get('exp');
+    //     $token = (string) $this->guard()->getToken();
+    //     $expiration = $this->guard()->getPayload()->get('exp');
 
-        return response()->json([
-            'token' => $token,
-            'token_type' => 'bearer',
-            'expires_in' => $expiration - time(),
-        ]);
-    }
+    //     return response()->json([
+    //         'token' => $token,
+    //         'token_type' => 'bearer',
+    //         'expires_in' => $expiration - time(),
+    //     ]);
+    // }
 
-    /**
-     * Get the failed login response instance.
-     */
-    protected function sendFailedLoginResponse(Request $request)
-    {
-        $user = $this->guard()->user();
+    // /**
+    //  * Get the failed login response instance.
+    //  */
+    // protected function sendFailedLoginResponse(Request $request)
+    // {
+    //     $user = $this->guard()->user();
 
-        if ($user instanceof MustVerifyEmail && ! $user->hasVerifiedEmail()) {
-            throw VerifyEmailException::forUser($user);
-        }
+    //     if ($user instanceof MustVerifyEmail && ! $user->hasVerifiedEmail()) {
+    //         throw VerifyEmailException::forUser($user);
+    //     }
 
-        throw ValidationException::withMessages([
-            $this->username() => [trans('auth.failed')],
-        ]);
-    }
+    //     throw ValidationException::withMessages([
+    //         $this->username() => [trans('auth.failed')],
+    //     ]);
+    // }
 
     /**
      * Log the user out of the application.
