@@ -1,87 +1,31 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-white">
-    <div class="container">
-      <router-link :to="{ name: user ? 'home' : 'welcome' }" class="navbar-brand">
-        {{ appName }}
-      </router-link>
+    <div class="bg-white px-6">
+      <nav class="container mx-auto flex justify-between items-center">
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
-        <span class="navbar-toggler-icon" />
-      </button>
+        <h1 style="font-family: 'Fuggles', cursive;" class="text-7xl font-bold">Vz</h1>
+        
+        <div class="flex space-x-12 text-xl">
+          <a href="#">Home</a>
+          <a href="#">Shop</a>
+          <a href="#">About us</a>
+          <a href="#">Contact</a>
+        </div>
 
-      <div id="navbar" class="collapse navbar-collapse">
-        <ul class="navbar-nav">
-          
-          <!-- <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li> -->
-        </ul>
-
-        <ul class="navbar-nav ms-auto">
-          <!-- Authenticated -->
-          <li v-if="user" class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-dark"
-               href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-            >
-              <img :src="user.photo_url" class="rounded-circle profile-photo me-1">
-              {{ user.name }}
-            </a>
-            <div class="dropdown-menu">
-              <router-link :to="{ name: 'settings.profile' }" class="dropdown-item ps-3">
-                <fa icon="cog" fixed-width />
-                {{ $t('settings') }}
-              </router-link>
-
-              <div class="dropdown-divider" />
-              <a href="#" class="dropdown-item ps-3" @click.prevent="logout">
-                <fa icon="sign-out-alt" fixed-width />
-                {{ $t('logout') }}
-              </a>
-            </div>
-          </li>
-          <!-- Guest -->
-          <template v-else>
-            <li class="nav-item">
-              <router-link :to="{ name: 'login' }" class="nav-link" active-class="active">
-                {{ $t('login') }}
-              </router-link>
-            </li>
-            <li class="nav-item">
-              <router-link :to="{ name: 'register' }" class="nav-link" active-class="active">
-                {{ $t('register') }}
-              </router-link>
-            </li>
-          </template>
-        </ul>
-      </div>
+        <div class="flex space-x-6">
+          <a href=""><fa class="w-5" :icon="['fa', 'search']" /></a>
+          <a href=""><fa class="w-5" :icon="['fa', 'heart']" /></a>
+          <a href=""><fa class="w-5" :icon="['fa', 'shopping-cart']" /></a>
+        </div>
+      
+      </nav>
     </div>
-  </nav>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 
-export default {
-  components: {
-    
-  },
-
-  data: () => ({
-    appName: window.config.appName
-  }),
-
-  computed: mapGetters({
-    user: 'auth/user'
-  }),
-
-  methods: {
-    async logout () {
-      // Log out the user.
-      await this.$store.dispatch('auth/logout')
-
-      // Redirect to login.
-      this.$router.push({ name: 'login' })
-    }
-  }
-}
+export default {}
 </script>
+
+<style scoped>
+  @import url("https://fonts.googleapis.com/css2?family=Fuggles&display=swap");
+</style>
