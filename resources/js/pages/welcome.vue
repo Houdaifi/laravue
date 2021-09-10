@@ -4,7 +4,7 @@
     <v-top-bar/>
     <v-navbar/>
 
-    <div>
+    <div class="py-16">
       <carousel :per-page="1" :mouse-drag="true">
         <slide>
           Slide 1 Content

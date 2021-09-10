@@ -1,11 +1,11 @@
 <template>
   <div class="bg-black p-4 text-white">
-    <div class="container mx-auto flex items-center justify-between">
+    <div class="container mx-auto flex flex-col space-y-4 lg:space-y-0 lg:flex-row items-center justify-between">
       <p class="text-base">{{$t('slogan')}}</p>
       <div class="inline-flex space-x-4 uppercase">
         <router-link :to="{ name: 'login' }">{{$t('login')}}</router-link>
         <p class="cursor-pointer">FAQS</p>
-        <drop-down>
+        <drop-down ref="dropdown">
           <div slot="trigger" class="text-white text-base">{{locales[locale]}}</div>
 
           <div slot="menu">
@@ -41,6 +41,7 @@ export default {
         loadMessages(locale)
         this.$store.dispatch('lang/setLocale', { locale })
       }
+      this.$refs.dropdown.hide();
     }
   }
 

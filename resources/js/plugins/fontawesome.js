@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 // import { } from '@fortawesome/free-regular-svg-icons'
 
 import {
-  faAngleDown,faSearch,faHeart,faShoppingCart
+  faAngleDown,faSearch,faHeart,faShoppingCart,faBars
 } from '@fortawesome/free-solid-svg-icons'
 
 // import {
@@ -18,7 +18,8 @@ library.add(
   faAngleDown,
   faSearch,
   faHeart,
-  faShoppingCart
+  faShoppingCart,
+  faBars
 )
 
 Vue.component('Fa', FontAwesomeIcon)
